@@ -1,2 +1,53 @@
-# luckydrawchirsmastERC
-luckydraw chirsmast ERC
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lucky Draw Winner is....</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #number {
+            font-size: 48px;
+            margin: 20px 0;
+        }
+        #message {
+            font-size: 24px;
+            color: green;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lucky Draw Winner is....</h1>
+    <div id="message"></div>
+    <div id="number">--</div>
+    <button onclick="generateNumber()">Generate Number</button>
+    <button onclick="restart()">Restart</button>
+
+    <script>
+        let currentNumber = null;
+
+        function generateNumber() {
+            if (currentNumber === null) {
+                currentNumber = Math.floor(Math.random() * 40) + 1; // 1-40
+                document.getElementById('number').textContent = currentNumber;
+                document.getElementById('message').textContent = 'Congratulations!';
+            }
+        }
+
+        function restart() {
+            currentNumber = null;
+            document.getElementById('number').textContent = '--';
+            document.getElementById('message').textContent = '';
+        }
+    </script>
+</body>
+</html>
